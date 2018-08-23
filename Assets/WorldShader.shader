@@ -41,6 +41,8 @@ Shader "Custom/CurvedWorld" {
 		// by the chosen curvature factor
 		vv = float4(0.0f, (vv.z * vv.z) * -_Curvature, 0.0f, 0.0f);
 
+		// vv = vv * _SinTime.w;
+
 		// Now apply the offset back to the vertices in model space
 		v.vertex += mul(unity_WorldToObject, vv);
 	}
