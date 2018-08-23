@@ -45,6 +45,10 @@ public class DialogueImplementation : MonoBehaviour
 		return isDialogueFinished;
 	}
 
+	public void SetDialogueToRun(TextAsset asset) {
+		textToRun = asset.text;
+	}
+
 	public string Parse(string characterName, string line)
 	{
 		return line;
@@ -84,7 +88,6 @@ public class DialogueImplementation : MonoBehaviour
 	}
 
 	public IEnumerator EndText() {
-		Debug.Log("END TEXT");
 		//Global.textbox.Hide();
 		uiText.text = "";
 		isDialogueFinished = true;

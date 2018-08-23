@@ -1193,6 +1193,7 @@ MonoBehaviour:
   - {fileID: 108022724}
   - {fileID: 1858363134}
   defaultDialogue: {fileID: 4900000, guid: 4611272c7524a084fb26738a1be05aec, type: 3}
+  isDialogueFinished: 0
 --- !u!114 &274055274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87198,6 +87199,7 @@ GameObject:
   - component: {fileID: 1799299800}
   - component: {fileID: 1799299799}
   - component: {fileID: 1799299802}
+  - component: {fileID: 1799299803}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -87289,6 +87291,18 @@ CapsuleCollider:
   m_Height: 3.2
   m_Direction: 1
   m_Center: {x: 0, y: 1.6, z: 0}
+--- !u!114 &1799299803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799299798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4b59fd517486145bfd13b4e086ef6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 4900000, guid: 4611272c7524a084fb26738a1be05aec, type: 3}
 --- !u!1 &1818172300
 GameObject:
   m_ObjectHideFlags: 0
@@ -88400,8 +88414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -384}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 37, y: -270.8}
+  m_SizeDelta: {x: -886.8, y: -541.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037211422
 MonoBehaviour:
@@ -88429,13 +88443,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 6
     m_MaxSize: 64
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello world
+  m_Text: Hello world how are you todayt
 --- !u!222 &2037211423
 CanvasRenderer:
   m_ObjectHideFlags: 0

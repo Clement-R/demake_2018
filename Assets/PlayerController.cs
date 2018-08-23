@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool _canInteract = false;
 	private bool _isInDialogue = false;
+	private DialogueInteractiveBehaviour _interactableNPC = null;
 
 	void Start () {
         _rb = GetComponent<Rigidbody>();
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 			if (_canInteract && !_isInDialogue) {
 				_isInDialogue = true;
 				StartCoroutine(dialogueCanvasGroup.Fade(0.5f, true));
+				dialogueSystem.SetDialogueToRun(_interactableNPC.dialogue);
 				dialogueSystem.RunDialogue();
 				StartCoroutine(WaitForDialogueEndAndFade());
 			}
@@ -54,8 +56,8 @@ public class PlayerController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.transform.CompareTag("NPC")) {
-			// TODO : Keep a ref to the last NPC we've crossed path
 			_canInteract = true;
+			_interactableNPC = other.GetComponent<DialogueInteractiveBehaviour>();
 			Debug.Log("Enter an interaction zone of an NPC");
 		}
 	}
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 	private void OnTriggerExit(Collider other) {
 		if (other.transform.CompareTag("NPC")) {
 			_canInteract = false;
+			_interactableNPC = null;
 			Debug.Log("Enter an interaction zone of an NPC");
 		}
 	}
