@@ -12,6 +12,8 @@ public class DialogueImplementation : MonoBehaviour
 	public GameObject[] optionButtons;
 	public TextAsset defaultDialogue;
 
+	public bool isDialogueFinished = false;
+
 	bool scrolling;
 	string textToRun = "";
 
@@ -32,7 +34,15 @@ public class DialogueImplementation : MonoBehaviour
 	}
 
 	void Start() {
+		// dialogue.Run(textToRun);
+	}
+
+	public void RunDialogue() {
 		dialogue.Run(textToRun);
+	}
+
+	public bool IsDialogueEnded() {
+		return isDialogueFinished;
 	}
 
 	public string Parse(string characterName, string line)
@@ -73,10 +83,13 @@ public class DialogueImplementation : MonoBehaviour
 		return Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
 	}
 
-	public IEnumerator EndText()
-	{
+	public IEnumerator EndText() {
+		Debug.Log("END TEXT");
 		//Global.textbox.Hide();
 		uiText.text = "";
+		isDialogueFinished = true;
+		yield return null;
+		isDialogueFinished = false;
 		yield break;
 	}
 
