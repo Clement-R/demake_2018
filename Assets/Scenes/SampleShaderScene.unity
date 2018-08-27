@@ -4130,7 +4130,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 1, y: 1, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -85080,6 +85080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueCanvasGroup: {fileID: 2044279692}
   dialogueSystem: {fileID: 274055273}
+  playerSpeed: 15
 --- !u!54 &1202288313
 Rigidbody:
   m_ObjectHideFlags: 0

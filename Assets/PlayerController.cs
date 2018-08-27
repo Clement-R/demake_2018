@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	public CanvasGroup dialogueCanvasGroup;
 	public DialogueImplementation dialogueSystem;
+    public float playerSpeed;
 
     private Rigidbody _rb;
 
@@ -21,21 +22,14 @@ public class PlayerController : MonoBehaviour {
         _rb.velocity = Vector3.zero;
 
 		if (!_isInDialogue) {
-			if (Input.GetKey(KeyCode.Z)) {
-				_rb.velocity = transform.forward * 15f;
-			} else if (Input.GetKey(KeyCode.S)) {
-				_rb.velocity = transform.forward * -15f;
-			}
 
-			if (Input.GetKey(KeyCode.Q)) {
-				_rb.velocity = transform.right * -15f;
-			} else if (Input.GetKey(KeyCode.D)) {
-				_rb.velocity = transform.right * 15f;
-			}
+            _rb.velocity = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * playerSpeed;
+
 		}
 
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetButtonDown("Interact"))
 		{
+            //print("Interact");
 			if (_canInteract && !_isInDialogue) {
 				_isInDialogue = true;
 				StartCoroutine(dialogueCanvasGroup.Fade(0.5f, true));

@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "<< if $alreadytalk is true >>\nPotato\n<< else >>\nI'm looking for my loved one, did you see someone around here ?\n[[ Yes ! |SawLovedOne]]\n[[ No... |NotSeen]]\n<< endif >>",
+		"position": {
+			"x": 399,
+			"y": 197
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SawLovedOne",
+		"tags": "",
+		"body": "Really ! Please take me to him/her !",
+		"position": {
+			"x": 565,
+			"y": 488
+		},
+		"colorID": 0
+	},
+	{
+		"title": "NotSeen",
+		"tags": "",
+		"body": "When will our hearts meet again...",
+		"position": {
+			"x": 237,
+			"y": 485
+		},
+		"colorID": 0
+	}
+]

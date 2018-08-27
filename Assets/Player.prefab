@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueCanvasGroup: {fileID: 0}
   dialogueSystem: {fileID: 0}
+  playerSpeed: 15
 --- !u!136 &136565180835694542
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -262,7 +263,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 32bc03a668f540e4dadcee27c1127e56, type: 2}
+  - {fileID: 2100000, guid: 7ad19404c6114f54f81bfd06568c9549, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
