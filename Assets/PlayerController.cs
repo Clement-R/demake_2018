@@ -10,12 +10,17 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody _rb;
 
+    private Animator _sprite;
+    private Vector2 __2DSpeed;
+    private float lastDirection;
+
 	private bool _canInteract = false;
 	private bool _isInDialogue = false;
 	private DialogueInteractiveBehaviour _interactableNPC = null;
 
 	void Start () {
         _rb = GetComponent<Rigidbody>();
+        _sprite = GetComponentInChildren<Animator>();
     }
 	
 	void Update () {
@@ -25,7 +30,15 @@ public class PlayerController : MonoBehaviour {
 
             _rb.velocity = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * playerSpeed;
 
-		}
+            // Animation Int 0 is UP, going Clockwise (C'EST DEGEULASSE COMME CODE BISOUS)
+            __2DSpeed = new Vector2(_rb.velocity.x, _rb.velocity.z);
+            lastDirection = Vector2.SignedAngle(Vector2.up, __2DSpeed);
+           
+            _sprite.SetFloat("Dir", lastDirection);
+
+
+
+        }
 
 		if(Input.GetButtonDown("Interact"))
 		{
