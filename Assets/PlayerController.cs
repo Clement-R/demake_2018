@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody _rb;
 
     private Animator _sprite;
-    private Vector2 __2DSpeed;
-    private float lastDirection;
 
 	private bool _canInteract = false;
 	private bool _isInDialogue = false;
@@ -29,15 +27,12 @@ public class PlayerController : MonoBehaviour {
 		if (!_isInDialogue) {
 
             _rb.velocity = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * playerSpeed;
-
-            // Animation Int 0 is UP, going Clockwise (C'EST DEGEULASSE COMME CODE BISOUS)
-            __2DSpeed = new Vector2(_rb.velocity.x, _rb.velocity.z);
-            lastDirection = Vector2.SignedAngle(Vector2.up, __2DSpeed);
            
-            _sprite.SetFloat("Dir", lastDirection);
-
-
-
+            if (_rb.velocity.x != 0 || _rb.velocity.z != 0)
+            {
+                _sprite.SetFloat("LastX", _rb.velocity.normalized.x);
+                _sprite.SetFloat("LastZ", _rb.velocity.normalized.z);
+            }
         }
 
 		if(Input.GetButtonDown("Interact"))
